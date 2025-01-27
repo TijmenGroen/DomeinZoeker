@@ -13,11 +13,12 @@
         <div class="search-body">
             <div class="search-bar-container">
                 <form>
+                    <label></label>
                     <input type="text" name="search-bar" class="search-bar">
                 </form>
             </div>
             <div class="results-container">
-
+            
             </div>
         </div>
     </div>
