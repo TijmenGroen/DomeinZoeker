@@ -1,6 +1,9 @@
 <?php
 session_start();
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $subtotal = 0;
+        $tax = 0;
+        $total = 0;
         try {
             require_once("../includes/dbh.inc.php");
     
@@ -26,6 +29,9 @@ session_start();
         }
     } else {
         header("Location: ../index.php");
+    }
+    if(isset($_POST["order"])) {
+        
     }
 ?>
 
@@ -56,9 +62,25 @@ session_start();
                     echo "<p>Domein: " . $item["domainName"] . "</p>";
                     echo "<p>Prijs: &#8364;" . $item["price"] . "</p>";
                     echo "</div>";
+                    $subtotal = $subtotal + $item["price"];
                 }
             }
         ?>
+        <hr>
+        <div class="cart-item">
+            <p>Prijs: &#8364;<?php echo $subtotal ?></p>
+            <p>Btw(21%): &#8364;<?php 
+                $tax = $subtotal * 0.21;
+                echo round($tax, 2);
+            ?></p>
+            <p>Totaal: &#8364;<?php 
+                $total = $subtotal + $tax;
+                echo round($total, 2);
+            ?> </p>
+            <form method="post" class="order-form">
+            	<button type="submit" name="order" value="order">Bestel</button>
+            </form>
+        </div>
     </div>
 </body>
 
