@@ -54,14 +54,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="css/resultPage.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="/css/resultPage.css">
+    <link rel="stylesheet" href="/css/index.css">
     <title>Domein Zoeker</title>
 </head>
 
 <body>
     <?php
-    include("header.php");
+    include("components/header.php");
     ?>
     <div class="result-content">
        <?php
