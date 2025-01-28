@@ -24,6 +24,16 @@ body {
     padding-inline: 16px;
 }
 
+.header button {
+    border: 0;
+    background: none;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: black;
+    font-size: large;
+}
+
 .header a {
     text-decoration: none;
     cursor: pointer;
