@@ -1,9 +1,12 @@
 <?php 
 session_start();
+
 if(isset($_SESSION["userId"])) {
     $registerName = $_SESSION["username"];
+    $url = "account";
 } else {
     $registerName = "Registreer";
+    $url = "register";
 }
 ?>
 
@@ -20,7 +23,7 @@ if(isset($_SESSION["userId"])) {
     <div class="header">
         <div class="navbar">
             <a href="../index.php" class="navbar-link">Domein Zoeker</a>
-            <a href="../pages/register.php" class="navbar-link"><?php echo $registerName ?></a>
+            <a href="pages/<?php echo $url ?>.php" class="navbar-link"><?php echo $registerName ?></a>
         </div>
     </div>
 </body>

@@ -22,6 +22,7 @@
             <input type="password" name="password" id="password" />
             <button type="submit">Registreer</button>
         </form>
+        <a href="../pages/login.php">Al een account</a>
     </div>
 </body>
 

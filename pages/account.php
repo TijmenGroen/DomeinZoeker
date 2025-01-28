@@ -16,16 +16,10 @@
     <?php
     include("../components/header.php");
     ?>
-    <div class="result-content">
-       <?php
-       foreach ($responseArray as $domain) {
-        echo "<div class='result-item'>";
-        echo "<p>Domein: " . $domain["domain"] . "</p>";
-        echo "<p>Status: " . $domain["status"] . "</p>";
-        echo "<p>Prijs: &#8364;" . $domain["price"]["product"]["price"] . "</p>";
-        echo "</div>";
-       }
-        ?>
+    <div class="account-box">
+        <form action="../includes/logout.inc.php" method="post">
+            <button type="submit">Log uit</button>
+        </form>
     </div>
 </body>
 </html>

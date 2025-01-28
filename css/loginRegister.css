@@ -9,6 +9,11 @@
     border-radius: 4px;
 }
 
+.login-register-box a {
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
 .login-register-form {
     display: flex;
     flex-direction: column;
