@@ -12,7 +12,9 @@ try {
 
     $statement = $pdo->prepare($query);
 
-    $userId = $_SESSION["userId"];
+    if(isset($_SESSION["userId"])) {
+        $userId = $_SESSION["userId"];
+    }
     $statement->bindParam(":userId", $userId);
 
     $statement->execute();
@@ -48,6 +50,7 @@ try {
         $disabled = "";
         if (!isset($_SESSION["userId"])) {
             echo "Log in om je wagentje te zien";
+            $disabled = "disabled";
         } else if (count($cartItems) < 1) {
             echo "<p>Geen producten in wagentje</p>";
             $disabled = "disabled";
