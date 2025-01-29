@@ -23,7 +23,7 @@ try {
     $statement = null;
     $pdo = null;
 } catch (PDOException $e) {
-    echo "Query error";
+    echo $e;
 }
 ?>
 
