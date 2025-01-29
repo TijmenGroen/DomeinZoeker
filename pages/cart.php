@@ -72,8 +72,9 @@ try {
                                 $total = $subtotal + $tax;
                                 echo round($total, 2);
                                 ?> </p>
-            <form method="post" class="order-form">
-                <button type="submit" name="order" value="order">Bestel</button>
+            <form action="../includes/orderItems.inc.php" method="post" class="order-form">
+                <input type="hidden" name="items" value='<?php echo json_encode($cartItems); ?>'>
+                <button type="submit">Bestel</button>
             </form>
         </div>
     </div>

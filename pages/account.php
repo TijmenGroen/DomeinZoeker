@@ -50,20 +50,19 @@ foreach ($orderedItems as $item) {
 <body>
     <?php include("../components/header.php"); ?>
     <h2>Account</h2>
-    <div class="account-box">
+    <div class="cart-box">
         <?php
         if (empty($groupedOrders)) {
             echo "<p>Nog geen bestellingen</p>";
         } else {
             foreach ($groupedOrders as $orderId => $items) {
-                echo "<div class='order-group'>";
+                echo "<div class='cart-item'>";
                 echo "<h3>Order #$orderId</h3>";
 
                 foreach ($items as $item) {
-                    echo "<div class='cart-item'>";
                     echo "<p>Domein: " . $item["domainName"]. "</p>";
                     echo "<p>Prijs: &#8364;" . $item["price"] . "</p>";
-                    echo "</div>";
+                    echo "<hr>";
                 }
 
                 echo "</div>";
