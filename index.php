@@ -36,8 +36,8 @@
             <div class="search-bar-container">
                 <form action="pages/resultPage.php" method="POST">
                     <label for="domain-name">Domein naam:</label>
-                    <input type="text" name="domain-name" id="domain-name" class="search-bar" placeholder="Enter domain name">                    
-                    <input type="submit" value="Search">
+                    <input type="text" name="domain-name" id="domain-name" class="search-bar" placeholder="Voer domein naam in">                    
+                    <input type="submit" value="Zoek">
                 </form>
             </div>
         </div>

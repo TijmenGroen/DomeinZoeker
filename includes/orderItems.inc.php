@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $statement = null;
     }
 
-    $query = "DELETE FROM ordereditems
+    $query = "DELETE FROM cartitem
     WHERE userId = :userId";
 
     $statement = $pdo->prepare($query);
