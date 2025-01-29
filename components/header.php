@@ -17,7 +17,7 @@ if(isset($_SESSION["userId"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="../css/index.css">
     <title>Domein Zoeker</title>
 </head>
 

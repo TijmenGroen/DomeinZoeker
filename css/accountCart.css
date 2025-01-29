@@ -22,14 +22,3 @@
     justify-content: center;
     padding-bottom: 12px;
 }
-
-.order-form button {
-    width: 90%;
-    background-color: #1e90ff;
-    border-radius: 4px;
-    border: 0;
-    height: 32px;
-    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.2));
-    cursor: pointer;
-    margin-top: 16px;
-}

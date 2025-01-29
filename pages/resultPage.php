@@ -1,6 +1,6 @@
 <?php
 
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
@@ -54,22 +54,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="/css/resultPage.css">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="../css/resultPage.css">
+    <link rel="stylesheet" href="../css/index.css">
     <title>Domein Zoeker</title>
 </head>
 
 <body>
     <?php
-    include("components/header.php");
+    include("../components/header.php");
     ?>
     <div class="result-content">
        <?php
+       if(!isset($_SESSION["userId"])) {
+            echo "Log in om iets aan je wagentje toe te voegen";
+       }
        foreach ($responseArray as $domain) {
+        $disabled  = "disabled";
+        if($domain["status"] == "free" && isset($_SESSION["userId"])) {
+            $disabled = "";
+        }
         echo "<div class='result-item'>";
         echo "<p>Domein: " . $domain["domain"] . "</p>";
         echo "<p>Status: " . $domain["status"] . "</p>";
         echo "<p>Prijs: &#8364;" . $domain["price"]["product"]["price"] . "</p>";
+        echo "<form action='../includes/addToCart.inc.php' method='post'>";
+        echo "<input type='hidden' name='domainName' id='domainName' value='" . $domain["domain"] . "'>";
+        echo "<input type='hidden' name='price' id='price' value='" . $domain["price"]["product"]["price"] . "'>";
+        echo "<button type='submit'" . $disabled . ">In wagentje</button>";
+        echo "</form>";
         echo "</div>";
        }
         ?>
