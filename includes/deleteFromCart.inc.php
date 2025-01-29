@@ -8,11 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require_once ("dbh.inc.php");
 
         $query = "DELETE FROM cartitem
-        WHERE itemId = :itemId";
+        WHERE itemId = :itemId
+        AND userId = :userId";
     
         $statement = $pdo->prepare($query);
 
         $statement->bindParam(":itemId", $itemId);
+        $statement->bindParam(":userId", $_SESSION["userId"]);
 
         $statement->execute();
 

@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $statement = null;
 
         foreach($items as $item) {
-            echo $item["domain"];
 
         $query = "INSERT INTO ordereditems (domainName, price, orderId) VALUES
         (:domainName, :price, :orderId);";
@@ -36,6 +35,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $statement = null;
     }
+
+    $query = "DELETE FROM ordereditems
+    WHERE userId = :userId";
+
+    $statement = $pdo->prepare($query);
+
+    $statement->bindParam(":userId", $_SESSION["userId"]);
+
+    $statement->execute();
+
+    $statement = null;
 
     $pdo = null;
 

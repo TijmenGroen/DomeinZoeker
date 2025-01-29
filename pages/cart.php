@@ -45,9 +45,14 @@ try {
     <h2>Winkelwagen</h2>
     <div class="cart-box">
         <?php
+        $disabled = "";
         if (!isset($_SESSION["userId"])) {
             echo "Log in om je wagentje te zien";
-        } else {
+        } else if (count($cartItems) < 1) {
+            echo "<p>Geen producten in wagentje</p>";
+            $disabled = "disabled";
+        }
+        else {
             foreach ($cartItems as $item) {
                 echo "<div class='cart-item'>";
                 echo "<p>Domein: " . $item["domainName"] . "</p>";
@@ -74,7 +79,7 @@ try {
                                 ?> </p>
             <form action="../includes/orderItems.inc.php" method="post" class="order-form">
                 <input type="hidden" name="items" value='<?php echo json_encode($cartItems); ?>'>
-                <button type="submit">Bestel</button>
+                <button type="submit" <?php echo $disabled ?>>Bestel</button>
             </form>
         </div>
     </div>
